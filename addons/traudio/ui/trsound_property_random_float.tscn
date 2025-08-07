@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://gex34y1bbnr"]
+
+[ext_resource type="Script" uid="uid://ib3n56jkcimp" path="res://addons/traudio/ui/trsound_property_random_float.gd" id="1_qdkf3"]
+
+[node name="TrSoundPropertyRandomFloat" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_qdkf3")
+value = null

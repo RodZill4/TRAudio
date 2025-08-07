@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="TRDataBase" load_steps=7 format=3 uid="uid://bam34e7q2oywf"]
+
+[ext_resource type="Script" uid="uid://b4d3syeh3jltv" path="res://addons/traudio/database/trdatabase.gd" id="1_uxsmj"]
+[ext_resource type="Script" uid="uid://x3x6682ktlsq" path="res://addons/traudio/database/trsound_item.gd" id="2_7uvqg"]
+
+[sub_resource type="Resource" id="Resource_uxsmj"]
+script = ExtResource("2_7uvqg")
+volume_db = 0.0
+children = Dictionary[String, ExtResource("2_7uvqg")]({})
+parameters = Dictionary[String, Variant]({})
+collapsed = false
+
+[sub_resource type="Resource" id="Resource_rx3gr"]
+script = ExtResource("2_7uvqg")
+volume_db = 0.0
+children = Dictionary[String, ExtResource("2_7uvqg")]({})
+parameters = Dictionary[String, Variant]({})
+collapsed = false
+
+[sub_resource type="Resource" id="Resource_7uvqg"]
+script = ExtResource("2_7uvqg")
+volume_db = 0.0
+children = Dictionary[String, ExtResource("2_7uvqg")]({})
+parameters = Dictionary[String, Variant]({})
+collapsed = false
+
+[sub_resource type="Resource" id="Resource_mm0bv"]
+script = ExtResource("2_7uvqg")
+volume_db = 0.0
+children = Dictionary[String, ExtResource("2_7uvqg")]({
+"music": SubResource("Resource_uxsmj"),
+"sfx": SubResource("Resource_rx3gr"),
+"ui": SubResource("Resource_7uvqg")
+})
+parameters = Dictionary[String, Variant]({})
+collapsed = false
+
+[resource]
+script = ExtResource("1_uxsmj")
+sounds = SubResource("Resource_mm0bv")
