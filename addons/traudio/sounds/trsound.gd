@@ -23,7 +23,7 @@ func play_on_audio_stream_player(audio_stream_player : AudioStreamPlayer):
 	audio_stream_player.stream = stream
 	audio_stream_player.volume_db = randf_range(volume_db-volume_randomness, volume_db+volume_randomness)
 	audio_stream_player.pitch_scale = randf_range(pitch_scale.x, pitch_scale.y)
-	if not Engine.is_editor_hint():
+	if true or not Engine.is_editor_hint():
 		audio_stream_player.bus = bus
 	audio_stream_player.play()
 
@@ -45,7 +45,7 @@ func play_on_audio_stream_player_3d(audio_stream_player_3d : AudioStreamPlayer3D
 		audio_stream_player_3d.bus = bus
 	audio_stream_player_3d.attenuation_model = asp3d_attenuation_model
 	audio_stream_player_3d.unit_size = asp3d_unit_size
-	audio_stream_player_3d.max_db = asp3d_max_db
+	audio_stream_player_3d.max_db = min(asp3d_max_db, audio_stream_player_3d.volume_db)
 	audio_stream_player_3d.max_distance = asp3d_max_distance
 	for c in TRAudio.audio_stream_player_3d_callbacks:
 		c.call(audio_stream_player_3d)

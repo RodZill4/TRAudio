@@ -154,7 +154,12 @@ var music_player : AudioStreamPlayer
 var current_music : TRSound
 
 func play_music(music_name : String, out_time : float = 0, in_time : float = 0):
-	var music : TRSound = get_sound(music_name)
+	
+	var music : TRSound
+	if music_name == "":
+		music = null
+	else:
+		music = get_sound(music_name)
 	if music == current_music:
 		return
 	current_music = music	
@@ -167,9 +172,10 @@ func play_music(music_name : String, out_time : float = 0, in_time : float = 0):
 	else:
 		music_player = AudioStreamPlayer.new()
 		add_child(music_player)
-	music.play_on_audio_stream_player(music_player)
-	if in_time > 0:
-		tween = get_tree().create_tween()
-		music_player.volume_db = -80.0
-		tween.tween_property(music_player, "volume_db", music.volume_db, in_time)
-		await tween.finished
+	if music:
+		music.play_on_audio_stream_player(music_player)
+		if in_time > 0:
+			tween = get_tree().create_tween()
+			music_player.volume_db = -80.0
+			tween.tween_property(music_player, "volume_db", music.volume_db, in_time)
+			await tween.finished
